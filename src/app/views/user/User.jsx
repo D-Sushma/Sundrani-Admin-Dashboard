@@ -2,6 +2,7 @@ import React from 'react';
 import Table from './shared/Table';
 import { Breadcrumb, SimpleCard } from 'app/components';
 import { Box, styled } from '@mui/material';
+import UserTableList from './shared/UserTableList';
 
 // ** BreadCrumb
 const Container = styled('div')(({ theme }) => ({
@@ -21,6 +22,9 @@ export default function User() {
             routeSegments={[{ name: 'Material', path: '/material' }, { name: 'Buttons' }]}
           />
         </Box>
+        <UserTableList />
+
+        <br />
         <SimpleCard title="User List">
           <Table />
         </SimpleCard>
