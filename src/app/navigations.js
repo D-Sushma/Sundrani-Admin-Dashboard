@@ -1,5 +1,7 @@
 export const navigations = [
   { name: 'Dashboard', path: '/dashboard/default', icon: 'dashboard' },
+  { name: 'Channel List', path: '/channel/Channel', icon: 'album' },
+  { name: 'User List', path: '/user/User', icon: 'filter_list' },
   { label: 'PAGES', type: 'label' },
   {
     name: 'Session/Auth',

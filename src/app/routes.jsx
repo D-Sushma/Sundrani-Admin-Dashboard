@@ -5,6 +5,8 @@ import { authRoles } from './auth/authRoles';
 import Loadable from './components/Loadable';
 import MatxLayout from './components/MatxLayout/MatxLayout';
 import materialRoutes from 'app/views/material-kit/MaterialRoutes';
+import ChannelRoutes from './views/channel/ChannelRoutes';
+import UserRoutes from './views/user/UserRoutes';
 
 // session pages
 const NotFound = Loadable(lazy(() => import('app/views/sessions/NotFound')));
@@ -27,6 +29,8 @@ const routes = [
     ),
     children: [
       ...materialRoutes,
+      ...ChannelRoutes,
+      ...UserRoutes,
       // dashboard route
       {
         path: '/dashboard/default',
