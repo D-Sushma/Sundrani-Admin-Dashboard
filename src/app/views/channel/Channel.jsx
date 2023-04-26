@@ -4,6 +4,9 @@ import styled from '@emotion/styled';
 import { Box } from '@mui/material';
 import AddChannelButton from './button/AddChannelButton';
 import ChannelList from './shared/ChannelList';
+import MainVideos from './shared/MainVideos';
+import PopularVideo from './shared/PopularVideo';
+import Categories from './shared/Categories';
 
 // ** Breadcrumb
 const Container = styled('div')(({ theme }) => ({
@@ -25,6 +28,9 @@ export default function Channel() {
       </Box>
       <AddChannelButton />
       <ChannelList />
+      <MainVideos />
+      <Categories />
+      <PopularVideo />
     </Container>
   );
 }
