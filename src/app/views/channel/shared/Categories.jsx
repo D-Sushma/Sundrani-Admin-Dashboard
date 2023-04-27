@@ -1,21 +1,33 @@
 import React from 'react';
-import { Box, Button } from '@mui/material';
+import { Box, Button, styled, Card } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+
+// ** ParentRoot
+const ParentRoot = styled(Card)({
+  width: '100%',
+  height: '100%',
+  backgroundColor: 'white',
+  marginTop: '30px',
+  padding: '10px',
+  paddingBottom: '20px',
+  background: 'linear-gradient(to right, #FDFBFB, wheat 70%)'
+});
 
 export default function Categories() {
   const navigate = useNavigate();
   return (
     <>
-      <Box
-        sx={{
-          width: '100%',
-          height: '200px',
-          border: '1px solid light purple',
-          background: 'linear-gradient(to right, #FDFBFB, wheat 70%)',
-          marginTop: '40px',
-          p: 1
-        }}
-      >
+      <ParentRoot>
+        {/* <Box
+          sx={{
+            width: '100%',
+            height: '200px',
+            border: '1px solid light purple',
+            background: 'linear-gradient(to right, #FDFBFB, wheat 70%)',
+            marginTop: '40px',
+            p: 1
+          }}
+        > */}
         {/* HEADER */}
         <Box
           sx={{
@@ -23,8 +35,7 @@ export default function Categories() {
             height: '50px',
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'center',
-            p: 1
+            alignItems: 'center'
           }}
         >
           <p
@@ -41,7 +52,7 @@ export default function Categories() {
               webkitBackgroundClip: 'text'
             }}
           >
-            <span>Categories</span>
+            <span> Categories</span>
           </p>
           <Button
             variant="contained"
@@ -124,7 +135,8 @@ export default function Categories() {
             </div>
           </Box>
         </Box>
-      </Box>
+        {/* </Box> */}
+      </ParentRoot>
     </>
   );
 }

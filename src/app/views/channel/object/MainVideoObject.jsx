@@ -28,12 +28,12 @@ const ChannelListObject = [
     list_name: 'Sundrani Channel ',
     channel_img: '/assets/images/sundrani-images/img_5.jpg'
     //channel_img: ''
-  },
-  {
-    id: 6,
-    list_name: 'Sundrani Channel ',
-    channel_img: '/assets/images/sundrani-images/img_6.jpg'
-    //channel_img: ''
   }
+  // {
+  //   id: 6,
+  //   list_name: 'Sundrani Channel ',
+  //   channel_img: '/assets/images/sundrani-images/img_6.jpg'
+  //   //channel_img: ''
+  // }
 ];
 export default ChannelListObject;

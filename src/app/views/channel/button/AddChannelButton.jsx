@@ -21,7 +21,7 @@ export default function FormDialog() {
         color="secondary"
         style={{ border: '3px solid red' }}
         sx={{
-          m: '0px 0px 20px 1320px',
+          m: '0px 0px 20px 1005px',
           fontWeight: 'bold',
           color: 'red',
           fontSize: 'large',

@@ -2,11 +2,11 @@ import React from 'react';
 import { Breadcrumb } from 'app/components';
 import styled from '@emotion/styled';
 import { Box } from '@mui/material';
-import AddChannelButton from './button/AddChannelButton';
 import ChannelList from './shared/ChannelList';
 import MainVideos from './shared/MainVideos';
 import PopularVideo from './shared/PopularVideo';
 import Categories from './shared/Categories';
+import Menus from './shared/Menus';
 
 // ** Breadcrumb
 const Container = styled('div')(({ theme }) => ({
@@ -26,8 +26,8 @@ export default function Channel() {
           routeSegments={[{ name: 'Channel', path: '/channel' }, { name: 'Channel List' }]}
         />
       </Box>
-      <AddChannelButton />
       <ChannelList />
+      <Menus />
       <MainVideos />
       <Categories />
       <PopularVideo />

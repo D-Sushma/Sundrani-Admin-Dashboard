@@ -1,30 +1,36 @@
-import React from 'react';
-import { Box, Button, styled, Card } from '@mui/material';
+import * as React from 'react';
+import {
+  Box,
+  Button,
+  styled,
+  // ** Card
+  Card,
+  CardContent,
+  CardMedia,
+  CardActionArea,
+  Typography
+} from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import MainVideoObject from '../object/MainVideoObject';
 
-// ** SimpleCard
-const CardRoot = styled(Card)({
-  height: '200px',
-  width: '350px'
-  // marginRight: '10px',
-  // marginLeft: '10px',
-  //   background: 'linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%)',
-  // backgroundColor: 'lightpurple'
-  // backgroundImage: 'linear-gradient(315deg, #90d5ec 0%, #fc575e 74%)'
-  // padding: '10px',
-  // borderWidth: '3px',
-  // borderStyle: 'solid',
-  // borderImage: 'linear-gradient(to right,black,blue,blue, red) 1'
-  //   borderImage: 'linear-gradient(to right,darkorchid,black, red) 1'
-  //   borderRadius: '5px'
+// ** ParentRoot
+const ParentRoot = styled(Card)({
+  width: '100%',
+  height: '100%',
+  backgroundColor: 'white',
+  marginTop: '30px',
+  padding: '10px',
+  paddingBottom: '20px',
+  background: 'linear-gradient(to right, #FDFBFB, #D6E6F2 70%)'
+  // background: 'linear-gradient(to right, #FDFBFB, #E5D1FA 70%)'
 });
 
 export default function MainVideos() {
   const navigate = useNavigate();
   return (
     <>
-      <Box
+      <ParentRoot>
+        {/* <Box
         sx={{
           width: '100%',
           height: 'auto',
@@ -33,7 +39,7 @@ export default function MainVideos() {
           marginTop: '40px',
           p: 1
         }}
-      >
+      > */}
         {/* HEADER */}
         <Box
           sx={{
@@ -61,7 +67,7 @@ export default function MainVideos() {
             <span> Popular Videos</span>
           </p>
           <Button
-            variant="contained"
+            variant="outlined"
             color="primary"
             sx={{ fontWeight: 'bold', fontSize: 'large', height: '40px' }}
             onClick={() => navigate('/channel/button/ViewAllButton')}
@@ -77,52 +83,44 @@ export default function MainVideos() {
               <>
                 <Box
                   sx={{
-                    width: '350px',
-                    height: '300px',
-                    border: '1px solid black',
-                    marginRight: '10px',
+                    width: '250px',
+                    height: 'auto',
+                    // border: '1px solid black',
                     marginLeft: '10px',
                     marginTop: '10px',
-                    borderRadius: '10px',
-                    borderWidth: '3px',
-                    borderStyle: 'solid',
-                    borderImage: 'linear-gradient(to right, #FDFBFB, lightpink 70%) 1',
+                    // borderRadius: '10px',
+                    // borderWidth: '2px',
+                    // borderStyle: 'solid',
+                    // borderImage: 'linear-gradient(to right, #FDFBFB, #D6E6F2 70%) 1',
                     boxShadow: 3
                   }}
                 >
-                  <CardRoot>
-                    <Box
-                      sx={{
-                        width: '100%',
-                        height: '100%'
-                      }}
-                    >
-                      <img
-                        style={{ width: '100%', height: '100%' }}
-                        key={i}
-                        src={items.channel_img}
-                        // src="/assets/images/sundrani-images/img_4.jpg"
+                  <Card sx={{ maxWidth: 250 }}>
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        height="150"
+                        image={items.channel_img}
                         alt="channel-logo"
+                        sx={{ objectFit: 'fill' }} // contain, cover
                       />
-                    </Box>
-                  </CardRoot>
-                  <Box
-                    key={i}
-                    sx={{
-                      width: '100%',
-                      height: 'auto',
-                      marginTop: 1,
-                      marginLeft: 1
-                    }}
-                  >
-                    {items.list_name}
-                  </Box>
+                      <CardContent>
+                        {/* <Typography gutterBottom variant="h5" component="div">
+                          Lizard
+                        </Typography> */}
+                        <Typography variant="body2" color="text.secondary">
+                          {items.list_name}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
                 </Box>
               </>
             );
           })}
         </Box>
-      </Box>
+        {/* </Box> */}
+      </ParentRoot>
     </>
   );
 }

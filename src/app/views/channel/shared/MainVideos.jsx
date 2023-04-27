@@ -3,17 +3,28 @@ import { Box, Button, styled, Card } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import MainVideoObject from '../object/MainVideoObject';
 
-// ** SimpleCard
+// ** ParentRoot
+const ParentRoot = styled(Card)({
+  width: '100%',
+  height: '100%',
+  backgroundColor: 'white',
+  marginTop: '30px',
+  padding: '10px',
+  paddingBottom: '20px',
+  background: 'linear-gradient(to right, #FDFBFB, #EBEDEE 70%)'
+});
+
+// ** CardRoot
 const CardRoot = styled(Card)({
-  height: '350px',
-  width: '250px',
+  height: '250px',
+  width: '200px',
   marginRight: '10px',
   marginLeft: '10px',
   //   background: 'linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%)',
-  backgroundColor: 'lightpurple',
+  backgroundColor: '',
   // backgroundImage: 'linear-gradient(315deg, #90d5ec 0%, #fc575e 74%)'
   padding: '10px',
-  borderWidth: '3px',
+  borderWidth: '1px',
   borderStyle: 'solid',
   borderImage: 'linear-gradient(to right,black,blue,blue, red) 1'
   //   borderImage: 'linear-gradient(to right,darkorchid,black, red) 1'
@@ -24,16 +35,17 @@ export default function MainVideos() {
   const navigate = useNavigate();
   return (
     <>
-      <Box
-        sx={{
-          width: '100%',
-          height: 'auto',
-          border: '1px solid light purple',
-          background: 'linear-gradient(to right, #FDFBFB, #EBEDEE 70%)',
-          marginTop: '40px',
-          p: 1
-        }}
-      >
+      <ParentRoot>
+        {/* <Box
+          sx={{
+            width: '100%',
+            height: 'auto',
+            border: '1px solid light purple',
+            background: 'linear-gradient(to right, #FDFBFB, #EBEDEE 70%)',
+            marginTop: '40px',
+            p: 1
+          }}
+        > */}
         {/* HEADER */}
         <Box
           sx={{
@@ -58,16 +70,33 @@ export default function MainVideos() {
               webkitBackgroundClip: 'text'
             }}
           >
-            <span>Videos</span>
+            <span> Main Videos</span>
           </p>
-          <Button
-            variant="contained"
-            color="primary"
-            sx={{ fontWeight: 'bold', fontSize: 'large', height: '40px' }}
-            onClick={() => navigate('/channel/button/OnMainVideo')}
+          <Box
+            sx={{
+              width: '300px',
+              display: 'flex',
+              justifyContent: 'space-between'
+            }}
           >
-            +Add Main Video
-          </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              sx={{ fontWeight: 'bold', fontSize: 'large', height: '40px' }}
+              onClick={() => navigate('/channel/button/OnMainVideo')}
+            >
+              +Add Main Video
+            </Button>
+
+            <Button
+              variant="outlined"
+              color="primary"
+              sx={{ fontWeight: 'bold', fontSize: 'large', height: '40px', marginLeft: '5px' }}
+              onClick={() => navigate('/channel/button/OnMainVideo')}
+            >
+              View All
+            </Button>
+          </Box>
         </Box>
 
         {/* MAIN VIDEOS */}
@@ -79,7 +108,8 @@ export default function MainVideos() {
                   <Box
                     sx={{
                       width: '100%',
-                      height: '250px'
+                      height: '150px',
+                      border: '1px solid #EEEEEE'
                     }}
                   >
                     <img
@@ -104,8 +134,10 @@ export default function MainVideos() {
               </>
             );
           })}
+          <Box onClick={() => navigate('/channel/button/ViewAllButton')}></Box>
         </Box>
-      </Box>
+        {/* </Box> */}
+      </ParentRoot>
     </>
   );
 }

@@ -2,8 +2,17 @@ import React from 'react';
 import { Card, Box, styled } from '@mui/material';
 import ChannelListObject from '../object/ChannelListObject';
 import HeightMenu from './HeightMenu';
+import AddChannelButton from '../button/AddChannelButton';
 
-// ** SimpleCard
+const ParentRoot = styled(Card)({
+  width: '100%',
+  height: '100%',
+  backgroundColor: 'white',
+  padding: '10px',
+  paddingBottom: '20px'
+});
+
+// ** ParentRoot
 const CardRoot = styled(Card)({
   height: '100%',
   // height: '250px',
@@ -27,52 +36,55 @@ const CardRoot = styled(Card)({
 export default function ChannelList() {
   return (
     <>
-      <Box sx={{ display: 'flex' }}>
-        {ChannelListObject.map((items, i) => {
-          return (
-            <>
-              <CardRoot>
-                <Box
-                  sx={{
-                    width: '100%',
-                    height: '150px',
-                    background: 'linear-gradient(315deg, #90d5ec 0%, #fc575e 74%)'
-                  }}
-                >
-                  <img
-                    style={{ width: '100%', height: '100%', borderRadius: '50%' }}
+      <ParentRoot>
+        <AddChannelButton />
+        <Box sx={{ display: 'flex' }}>
+          {ChannelListObject.map((items, i) => {
+            return (
+              <>
+                <CardRoot>
+                  <Box
+                    sx={{
+                      width: '100%',
+                      height: '150px',
+                      background: 'linear-gradient(315deg, #90d5ec 0%, #fc575e 74%)'
+                    }}
+                  >
+                    <img
+                      style={{ width: '100%', height: '100%', borderRadius: '50%' }}
+                      key={i}
+                      src={items.channel_img}
+                      alt="channel-logo"
+                    />
+                  </Box>
+                  <Box
                     key={i}
-                    src={items.channel_img}
-                    alt="channel-logo"
-                  />
-                </Box>
-                <Box
-                  key={i}
-                  sx={{
-                    width: '100%',
-                    height: 'auto',
-                    marginTop: 1,
-                    marginLeft: 1
-                  }}
-                >
-                  {items.list_name}
-                </Box>
-                <Box
-                  sx={{
-                    width: '100%',
-                    height: '30px',
-                    display: 'flex',
-                    justifyContent: 'flex-end',
-                    marginBottom: 1
-                  }}
-                >
-                  <HeightMenu />
-                </Box>
-              </CardRoot>
-            </>
-          );
-        })}
-      </Box>
+                    sx={{
+                      width: '100%',
+                      height: 'auto',
+                      marginTop: 1,
+                      marginLeft: 1
+                    }}
+                  >
+                    {items.list_name}
+                  </Box>
+                  <Box
+                    sx={{
+                      width: '100%',
+                      height: '30px',
+                      display: 'flex',
+                      justifyContent: 'flex-end',
+                      marginBottom: 1
+                    }}
+                  >
+                    <HeightMenu />
+                  </Box>
+                </CardRoot>
+              </>
+            );
+          })}
+        </Box>
+      </ParentRoot>
     </>
   );
 }
