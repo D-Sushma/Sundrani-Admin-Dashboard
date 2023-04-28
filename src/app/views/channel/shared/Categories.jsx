@@ -1,6 +1,7 @@
-import React from 'react';
-import { Box, Button, styled, Card } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Button, styled, Card, Icon } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import PopularVideo from './PopularVideo';
 
 // ** ParentRoot
 const ParentRoot = styled(Card)({
@@ -10,11 +11,27 @@ const ParentRoot = styled(Card)({
   marginTop: '30px',
   padding: '10px',
   paddingBottom: '20px',
-  background: 'linear-gradient(to right, #FDFBFB, wheat 70%)'
+  // background: 'linear-gradient(to right, #FDFBFB, wheat 70%)',
+  background: 'linear-gradient(to right, #FDFBFB, #EBEDEE 70%)'
 });
 
 export default function Categories() {
   const navigate = useNavigate();
+  const [showTrending, setShowTrending] = useState(false);
+  const [showNewMovie, setShowNewMovie] = useState(false);
+  const [showPopular, setShowPopular] = useState(false);
+  const onTrendingClick = () => {
+    setShowTrending((current) => !current);
+    // setShowTrending(true);
+  };
+  const onNewMovieClick = () => {
+    setShowNewMovie((current) => !current);
+    // setShowNewMovie(true);
+  };
+  const onPopularClick = () => {
+    setShowPopular((current) => !current);
+    // setShowPopular(true);
+  };
   return (
     <>
       <ParentRoot>
@@ -84,7 +101,9 @@ export default function Categories() {
                 justifyContent: 'center',
                 alignItems: 'center'
               }}
+              onClick={() => onTrendingClick()}
             >
+              <Icon sx={{ mr: 1 }}>whatshot</Icon>
               Trending
             </div>
           </Box>
@@ -107,7 +126,9 @@ export default function Categories() {
                 justifyContent: 'center',
                 alignItems: 'center'
               }}
+              onClick={() => onNewMovieClick()}
             >
+              <Icon sx={{ mr: 1 }}>fiber_new</Icon>
               New Movie
             </div>
           </Box>
@@ -130,13 +151,18 @@ export default function Categories() {
                 justifyContent: 'center',
                 alignItems: 'center'
               }}
+              onClick={() => onPopularClick()}
             >
+              <Icon sx={{ mr: 1 }}>local_fire_department_sharp</Icon>
               Popular Movie
             </div>
           </Box>
         </Box>
         {/* </Box> */}
       </ParentRoot>
+      {showTrending && <PopularVideo />}
+      {showNewMovie && <PopularVideo />}
+      {showPopular && <PopularVideo />}
     </>
   );
 }

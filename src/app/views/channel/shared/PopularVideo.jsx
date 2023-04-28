@@ -21,7 +21,8 @@ const ParentRoot = styled(Card)({
   marginTop: '30px',
   padding: '10px',
   paddingBottom: '20px',
-  background: 'linear-gradient(to right, #FDFBFB, #D6E6F2 70%)'
+  background: 'linear-gradient(to right, #FDFBFB, #EBEDEE 70%)'
+  // background: 'linear-gradient(to right, #FDFBFB, #D6E6F2 70%)',
   // background: 'linear-gradient(to right, #FDFBFB, #E5D1FA 70%)'
 });
 

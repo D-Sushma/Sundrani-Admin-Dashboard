@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Box, styled } from '@mui/material';
 import ChannelListObject from '../object/ChannelListObject';
 import HeightMenu from './HeightMenu';
 import AddChannelButton from '../button/AddChannelButton';
+import TabBar from './TabBar';
 
 const ParentRoot = styled(Card)({
   width: '100%',
@@ -34,11 +35,22 @@ const CardRoot = styled(Card)({
 // }));
 
 export default function ChannelList() {
+  const [isShown, setIsShown] = useState(false);
+  const onChannelListClick = () => {
+    if (isShown === true) {
+      setIsShown(false);
+    } else {
+      setIsShown(true);
+    }
+  };
   return (
     <>
       <ParentRoot>
-        <AddChannelButton />
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <AddChannelButton />
+        </Box>
+
+        <Box sx={{ display: 'flex', curser: 'pointer' }} onClick={() => onChannelListClick()}>
           {ChannelListObject.map((items, i) => {
             return (
               <>
@@ -85,6 +97,7 @@ export default function ChannelList() {
           })}
         </Box>
       </ParentRoot>
+      {isShown && <TabBar />}
     </>
   );
 }

@@ -3,10 +3,6 @@ import { Breadcrumb } from 'app/components';
 import styled from '@emotion/styled';
 import { Box } from '@mui/material';
 import ChannelList from './shared/ChannelList';
-import MainVideos from './shared/MainVideos';
-import PopularVideo from './shared/PopularVideo';
-import Categories from './shared/Categories';
-import Menus from './shared/Menus';
 
 // ** Breadcrumb
 const Container = styled('div')(({ theme }) => ({
@@ -27,10 +23,6 @@ export default function Channel() {
         />
       </Box>
       <ChannelList />
-      <Menus />
-      <MainVideos />
-      <Categories />
-      <PopularVideo />
     </Container>
   );
 }
